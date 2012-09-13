@@ -87,4 +87,4 @@ class mongoDBHelp
 }
 
 $mongodb = new mongoDBHelp();
-$postCollection = $mongodb->selectDB('blog')->selectCollection('post');
+$postCollection = $mongodb->selectDB('blog')->selectCollection('post')->collection;

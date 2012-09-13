@@ -2,17 +2,34 @@
 
 if (isset($_POST['title']))
 {
+    
+    
     $title = filter_input(INPUT_POST, 'title');
     $content = filter_input(INPUT_POST, 'content');
+    $date = new MongoDate(  strtotime('now') );
+    
     $post = array(
         'title' => $title,
         'content' => $content,
         'comments' => array(),
-        'num_comment' => 0
+        'num_comment' => 0,
+        'post_date'  => $date
     );
+    ;
     
-    $postCollection->insert( $post );
-    echo 'add success';
+     if ( $postCollection->insert( $post ) )
+     {
+        $mongodb->selectCollection('option');
+        $option  = $mongodb->collection;
+        $item = $option->findOne(array('label'=>'num_count'));
+        $item['value']++;
+        
+        $option->save($item);
+        
+     }
+     
+        
+    header("Location: index.php");
 }
 
 include 'sublayout/header.php';

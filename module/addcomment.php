@@ -12,6 +12,6 @@ array_push($result['comments'], $content);
 $result['num_comment']++;
 
 $postCollection->update( array('_id' => $theObjId ) , $result  );
-$link = "http://localhost/mongo/?page=view&id=".$id;
+$link = "index.php?page=view&id=".$id;
 
 header("Location: $link");
