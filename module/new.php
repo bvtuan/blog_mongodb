@@ -43,7 +43,7 @@ include 'sublayout/header.php';
         <label>Content</label>
         <textarea name="content"></textarea>
     </p>
-    <input type="submit" value="Submit" />
+    <input type="submit" class="btn" value="Submit" />
 </form>
 <?php
 include 'sublayout/footer.php';

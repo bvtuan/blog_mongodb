@@ -34,30 +34,24 @@ if ($comment_count>0)
   }
 } 
 
-
-
 ?>
-
-
-
-
-
-
-
-<ol>
+<hr/>
+<ol >
     <?php    foreach ($result['comments'] as $item) :?>
     <li><p>
             <?php echo $item; ?>
-        </p></li>
+        </p>
+		<hr/>
+	</li>
     <?php    endforeach; ?>
 </ol>
-<form action="?page=addcomment" method="POST" >
+<form action="?page=addcomment" method="POST"  class="form-horizontal">
     <input type="hidden" name="id" value="<?php echo $result['_id']; ?>" />
     <p>
         <label>Content</label>
         <textarea name="content"></textarea>
     </p>
-    <input type="submit" value="Submit" />
+    <input type="submit" class="btn" value="Submit" />
 </form>
 <?php
     include 'sublayout/footer.php';
